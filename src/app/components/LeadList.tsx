@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, SetStateAction, SetStateAction } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import { db } from "../firebaseConfig";
 import {
   collection,
