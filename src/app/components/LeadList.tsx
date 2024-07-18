@@ -44,10 +44,7 @@ const LeadList = () => {
     const fetchLeads = async () => {
       const leadsCollection = await getDocs(collection(db, "leads"));
       setLeads(
-        leadsCollection.docs.map((doc: { data: () => any; id: any }) => ({
-          ...doc.data(),
-          id: doc.id,
-        }))
+        leadsCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
     };
     fetchLeads();
@@ -80,23 +77,7 @@ const LeadList = () => {
     );
   };
 
-  const handleEditLead = (
-    lead: SetStateAction<{
-      name: string;
-      companyName: string;
-      service: string;
-      budget: string;
-      comments: string;
-      mobile: string;
-      followUpDate: string;
-      leadSource: string;
-      email: string;
-      instagram: string;
-      facebook: string;
-      linkedin: string;
-      status: string;
-    }>
-  ) => {
+  const handleEditLead = (lead) => {
     setNewLead(lead);
     setEditingLeadId(lead.id);
   };
